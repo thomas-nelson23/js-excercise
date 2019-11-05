@@ -2,19 +2,28 @@
 alert("1. Hello World!");
 
 // 2 create a prompt which asks for your favorite number
+let sign = prompt("What's your favorite number?");
+
+console.log("2: " + sign)
+
+
+
 let mainDiv = document.querySelector('div');
-mainDiv.innerHTML = `
- 
-        <input type="number" id="number" name="number" required>
-        <input type="submit" id="submit" onclick="submitPress()">
-        <br>
-   
-`;
+// mainDiv.innerHTML = `
+
+//         <input type="number" id="number" name="number" required>
+//         <input type="submit" id="submit" onclick="submitPress()">
+//         <br>
+
+// `;
+
+
 // 2a display the response in the console with "user's favorite nunber is: (display input)"
-let numberInput = document.querySelector('#number');
+
 let submit = document.querySelector('#submit');
 
-function submitPress(event) {
+function submitPress() {
+    let numberInput = document.querySelector('#number');
     console.log("2a: " + numberInput.value);
     // event.preventDefault();
 }
@@ -98,31 +107,48 @@ for (var counter = 0; counter < peopleArray.length; counter++) {
 
     mainDiv.innerHTML += `
     <p>
-        ${currentPerson.name} is ${currentPerson.age}years old and ${studentText}a student. 
+        ${currentPerson.name} is ${currentPerson.age} years old and ${studentText}a student. 
         ${currentPerson.name} is a ${currentPerson.jobTitle} and uses a ${currentPerson.laptopType}. </p>
         `
-}
+};
 
 
 // 7 create two "const" variables of strings. console log the combined result using "concat"
-const hello = "hello ";
-const world = "world.";
-console.log("7: " + hello + world)
+const hello = ["hello ", "what's", "up?"];
+const world = ["I", "am", "good."];
+console.log(hello.concat(world));
 
 
 // 8 create an array of strings made up of words of a quote or nursery rhyme.
-const rowboat = ["row", "row", "row", "your", "boat", "gently", "down", "the", "stream"]
+const rowboat = ["row", "row", "row", "your", "boat", "gently", "down", "the", "stream"];
 // 8a use the "filter" method on the array variable to gather the words with length greater than 3
 const result = rowboat.filter(word => word.length > 3);
 
 
 // 8b console log those words
-console.log("8b: " + result)
-    // 8c use "join" to create a sentence outputted in a console log
-
+console.log("8b: " + result);
+// 8c use "join" to create a sentence outputted in a console log
+console.log("8c: " + rowboat.join(' '));
+let i = 0;
 // 9 create an array of 10 javascript concepts
-    // 9a using a "do ... while" loop, console.log each concept with a labeling string
-    // example output for one loop: "we have learned about ____ in javascript" (i.e. variables)
+jsConcepts = ["loops", "variables", "functions", "arrays", "objects", "strings", "API's", "file paths", "DOM", "debugging"]
+// 9a using a "do ... while" loop, console.log each concept with a labeling string
+do {
+
+    console.log("9a: " + jsConcepts[i]);
+    i = i + 1;
+} while (i < jsConcepts.length);
+// example output for one loop: "we have learned about ____ in javascript" (i.e. variables)
 
 // 10 create a function that injects a clickable div on the document
-    // 10a when clicking on the button, a message appears next to the div
+mainDiv.innerHTML += `<div id="container"><div id="clickable" onclick="innerMessage()"></div></div>`
+let clickable = document.querySelector('#clickable');
+let container = document.querySelector('#container');
+clickable.style.cssText = "padding: 20px; background-color: blue; width: 80px";
+container.style.cssText = "display: flex;"
+//mainDiv.style.cssText = "display: flex;";
+// 10a when clicking on the button, a message appears next to the div
+
+function innerMessage() {
+    container.innerHTML += `<p>Hello!</p>`;
+}
