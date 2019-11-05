@@ -41,18 +41,20 @@ heading.style.cssText = "border: 1px solid black";
 let alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 // 4a use "slice" to remove the vowels, including "y"
 //vowels = alphabet.slice(0, 4, 8, 14, 20, 24);
-vowels = alphabet.slice(1, 4);
-vowels += alphabet.slice(5, 8);
-vowels += alphabet.slice(9, 14);
-vowels += alphabet.slice(15, 20);
-vowels += alphabet.slice(21, 24);
-vowels += alphabet.slice(25, 26);
+let noVowel1 = alphabet.slice(1, 4);
+let noVowel2 = alphabet.slice(5, 8);
+let noVowel3 = alphabet.slice(9, 14);
+let noVowel4 = alphabet.slice(15, 20);
+let noVowel5 = alphabet.slice(21, 24);
+let noVowel6 = alphabet.slice(25, 26);
+
+noVowels = noVowel1.concat(noVowel2, noVowel3, noVowel4, noVowel5, noVowel6);
 
 
 // 4b console.log the remaining array of consonants, label the console log with a string
-console.log("Alphabet - Vowels: " + vowels)
+console.log('4b: ' + "Alphabet - Vowels: " + noVowels)
 // 4c console.log the length of this array, label it with a string
-console.log(vowels.length)
+console.log('4c: ' + noVowels.length)
 
 // 5 create a variable of an array of numbers 1-5
 numberArray = [1, 2, 3, 4, 5]
@@ -64,8 +66,16 @@ const numberMap = numberArray.map(numberItem => {
 console.log("5b: " + numberMap);
 // 5c use the "forEach" method on the mapped array to console log the remainder when divided by 2
 numberMap.forEach(function (item) {
-    console.log("5c: " + item / 2)
+    //console.log("5c: " + item / 2)
+    if (item % 2 == 0) {
+        console.log("5c: " + '0')
+    } else {
+        console.log("5c: " + '1')
+    }
 });
+
+
+
 
 // 6 create an variable holding an object of each person with the properties "name, age, jobTitle, laptopType, isStudent" the data can/is fictional
 const peopleArray = [
@@ -101,7 +111,7 @@ for (var counter = 0; counter < peopleArray.length; counter++) {
         studentText = "is "
     } else {
         studentText = "is not "
-    }
+    };
 
     // 6b inject these sentences in "p" elements in the html div
 
@@ -116,7 +126,7 @@ for (var counter = 0; counter < peopleArray.length; counter++) {
 // 7 create two "const" variables of strings. console log the combined result using "concat"
 const hello = ["hello ", "what's", "up?"];
 const world = ["I", "am", "good."];
-console.log(hello.concat(world));
+console.log('7: ' + hello.concat(world));
 
 
 // 8 create an array of strings made up of words of a quote or nursery rhyme.
@@ -151,4 +161,4 @@ container.style.cssText = "display: flex;"
 
 function innerMessage() {
     container.innerHTML += `<p>Hello!</p>`;
-}
+};
