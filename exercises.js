@@ -7,6 +7,7 @@ mainDiv.innerHTML = `
  
         <input type="number" id="number" name="number" required>
         <input type="submit" id="submit" onclick="submitPress()">
+        <br>
    
 `;
 // 2a display the response in the console with "user's favorite nunber is: (display input)"
@@ -41,22 +42,82 @@ vowels += alphabet.slice(25, 26);
 
 // 4b console.log the remaining array of consonants, label the console log with a string
 console.log("Alphabet - Vowels: " + vowels)
-    // 4c  console.log the length of this array, label it with a string
+// 4c console.log the length of this array, label it with a string
+console.log(vowels.length)
 
 // 5 create a variable of an array of numbers 1-5
-    // 5a create a "const" which uses "map" to multiply each number with itself
-    // 5b console.log the results of the mapped array, label the console log with string
-    // 5c use the "forEach" method on the mapped array to console log the remainder when divided by 2
+numberArray = [1, 2, 3, 4, 5]
+// 5a create a "const" which uses "map" to multiply each number with itself
+const numberMap = numberArray.map(numberItem => {
+    return numberItem *= numberItem
+})
+// 5b console.log the results of the mapped array, label the console log with string
+console.log("5b: " + numberMap);
+// 5c use the "forEach" method on the mapped array to console log the remainder when divided by 2
+numberMap.forEach(function (item) {
+    console.log("5c: " + item / 2)
+});
 
 // 6 create an variable holding an object of each person with the properties "name, age, jobTitle, laptopType, isStudent" the data can/is fictional
-    // 6a create a for loop to dynamically create a sentence describing each "person"
+const peopleArray = [
+    {
+        name: "todd",
+        age: 54,
+        jobTitle: "professional dodgeball player",
+        laptopType: "ugly computer",
+        isStudent: true,
+    },
+    {
+        name: "mary",
+        age: 22,
+        jobTitle: "limo driver",
+        laptopType: "chromebook",
+        isStudent: false,
+    },
+    {
+        name: "samantha",
+        age: 33,
+        jobTitle: "soccer player",
+        laptopType: "macbook",
+        isStudent: false,
+    }
+]
+// 6a create a for loop to dynamically create a sentence describing each "person"
+
+for (var counter = 0; counter < peopleArray.length; counter++) {
+    currentPerson = peopleArray[counter];
+
+    studentText = '';
+    if (currentPerson.isStudent) {
+        studentText = "is "
+    } else {
+        studentText = "is not "
+    }
+
     // 6b inject these sentences in "p" elements in the html div
 
+    mainDiv.innerHTML += `
+    <p>
+        ${currentPerson.name} is ${currentPerson.age}years old and ${studentText}a student. 
+        ${currentPerson.name} is a ${currentPerson.jobTitle} and uses a ${currentPerson.laptopType}. </p>
+        `
+}
+
+
 // 7 create two "const" variables of strings. console log the combined result using "concat"
+const hello = "hello ";
+const world = "world.";
+console.log("7: " + hello + world)
+
 
 // 8 create an array of strings made up of words of a quote or nursery rhyme.
-    // 8a use the "filter" method on the array variable to gather the words with length greater than 3
-    // 8b console log those words
+const rowboat = ["row", "row", "row", "your", "boat", "gently", "down", "the", "stream"]
+// 8a use the "filter" method on the array variable to gather the words with length greater than 3
+const result = rowboat.filter(word => word.length > 3);
+
+
+// 8b console log those words
+console.log("8b: " + result)
     // 8c use "join" to create a sentence outputted in a console log
 
 // 9 create an array of 10 javascript concepts
