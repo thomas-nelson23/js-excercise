@@ -1,18 +1,46 @@
 // 1 create an alert that says "hello world"
+alert("1. Hello World!");
 
 // 2 create a prompt which asks for your favorite number
-    // 2a display the response in the console with "user's favorite nunber is: (display input)"
+let mainDiv = document.querySelector('div');
+mainDiv.innerHTML = `
+ 
+        <input type="number" id="number" name="number" required>
+        <input type="submit" id="submit" onclick="submitPress()">
+   
+`;
+// 2a display the response in the console with "user's favorite nunber is: (display input)"
+let numberInput = document.querySelector('#number');
+let submit = document.querySelector('#submit');
+
+function submitPress(event) {
+    console.log("2a: " + numberInput.value);
+    // event.preventDefault();
+}
+
+
 
 // 3 create a variable which selects the h1
-    // 3a add inner text to the header selector
-    var header = document.querySelector("h1");
-    header.innerHTML = "hi heading"
-    // 3b add a border around the h1 that is 1px, solid, and black. use "cssText" to add this
-        header.style.cssText = "border: 1px solid black";
+const heading = document.querySelector("h1");
+// 3a add inner text to the header selector
+heading.innerHTML = "Header";
+// 3b add a border around the h1 that is 1px, solid, and black. use "cssText" to add this
+heading.style.cssText = "border: 1px solid black";
 
 // 4 console.log a variable tht holds an array of the alphabet
-    // 4a use "slice" to remove the vowels, including "y"
-    // 4b console.log the remaining array of consonants, label the console log with a string
+let alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+// 4a use "slice" to remove the vowels, including "y"
+//vowels = alphabet.slice(0, 4, 8, 14, 20, 24);
+vowels = alphabet.slice(1, 4);
+vowels += alphabet.slice(5, 8);
+vowels += alphabet.slice(9, 14);
+vowels += alphabet.slice(15, 20);
+vowels += alphabet.slice(21, 24);
+vowels += alphabet.slice(25, 26);
+
+
+// 4b console.log the remaining array of consonants, label the console log with a string
+console.log("Alphabet - Vowels: " + vowels)
     // 4c  console.log the length of this array, label it with a string
 
 // 5 create a variable of an array of numbers 1-5
@@ -37,4 +65,3 @@
 
 // 10 create a function that injects a clickable div on the document
     // 10a when clicking on the button, a message appears next to the div
-    
